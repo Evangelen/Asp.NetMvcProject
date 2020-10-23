@@ -1,0 +1,42 @@
+﻿@model List<LeaveManagementSystem.Models.Employees>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<a href="~/home/create">Create</a>
+
+<br /><br />
+
+<table class="table">
+    <tr>
+        <th>Employee Name</th>
+        <th>Employee Role</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.EmpName</td>
+            <td>@item.EmpRole</td>
+            <td><a href="~/home/edit?id=@item.EmpId">Edit</a></td>
+        </tr>
+    }
+</table>
+
+
+@{ var message = TempData["success"];}
+
+
+<script>
+    var message = '@message';
+    if (message) {
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your work has been saved',
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }
+</script>
