@@ -6,8 +6,9 @@
 
 <h2>Create</h2>
 
-<form method="post" action="/home/create">
+<form method="post" action="/home/create" enctype="multipart/form-data">
 
+    @{ Html.RenderPartial("Image");}
 
     @Html.LabelFor(m => m.EmpName)
     <br />

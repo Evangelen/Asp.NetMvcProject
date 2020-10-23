@@ -32,6 +32,11 @@ namespace LeaveManagementSystem.Models
         public string EmpEmailId { get; set; }
 
 
+
+        [Column(TypeName = "varchar(MAX)")]
+        public string ImageUrl { get; set; }
+
+
         public virtual long DepartmentId { get; set; }
 
 
