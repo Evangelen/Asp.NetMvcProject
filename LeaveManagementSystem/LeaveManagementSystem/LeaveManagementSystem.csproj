@@ -50,7 +50,43 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.3\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.4.1.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=4.1.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.4.1.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.2\lib\netstandard1.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.2\lib\portable-net45+win8+wp8+wpa81\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -67,6 +103,18 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Unity.Abstractions, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Abstractions.5.11.1\lib\net46\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Container.5.11.1\lib\net46\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Mvc, Version=5.11.1.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.Mvc.5.11.1\lib\net46\Unity.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.2.0\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Razor">
@@ -99,11 +147,37 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Java.js" />
+    <Content Include="Content\Navigation.css" />
+    <Content Include="Content\Login.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="Content\Styles.css" />
+    <Content Include="Error.html" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="ProfPic.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\LeaveFunctions\Views\web.config" />
+    <Content Include="Areas\LeaveFunctions\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\LeaveFunctions\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\LeaveFunctions\Views\LeaveApplication\Create.cshtml" />
+    <Content Include="Areas\LeaveFunctions\Views\LeaveApplication\Index.cshtml" />
+    <Content Include="Areas\LeaveFunctions\Views\LeaveRequest\ViewAll.cshtml" />
+    <Content Include="Areas\LeaveFunctions\Views\LeaveRequest\ViewDetails.cshtml" />
+    <Content Include="Areas\LeaveFunctions\Views\LeaveApplication\Edit.cshtml" />
+    <Content Include="Areas\ProfileFunctions\Views\web.config" />
+    <Content Include="Areas\ProfileFunctions\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\ProfileFunctions\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\ProfileFunctions\Views\Profile\MyProfile.cshtml" />
+    <Content Include="Areas\ProfileFunctions\Views\Profile\Edit.cshtml" />
+    <Content Include="Areas\ProfileFunctions\Views\Profile\ChangePassword.cshtml" />
+    <Content Include="Areas\EmployeeFunctions\Views\web.config" />
+    <Content Include="Areas\EmployeeFunctions\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\EmployeeFunctions\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\EmployeeFunctions\Views\Employee\EmployeeIndex.cshtml" />
+    <Content Include="Areas\EmployeeFunctions\Views\Employee\EditEmployee.cshtml" />
+    <Content Include="Areas\EmployeeFunctions\Views\Employee\Register.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -111,12 +185,22 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Web.config" />
-    <Content Include="Views\Home\Edit.cshtml" />
-    <Content Include="Views\Home\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\UnityConfig.cs" />
+    <Compile Include="App_Start\UnityMvcActivator.cs" />
+    <Compile Include="Areas\EmployeeFunctions\Controllers\EmployeeController.cs" />
+    <Compile Include="Areas\EmployeeFunctions\EmployeeFunctionsAreaRegistration.cs" />
+    <Compile Include="Areas\LeaveFunctions\Controllers\LeaveApplicationController.cs" />
+    <Compile Include="Areas\LeaveFunctions\Controllers\LeaveRequestController.cs" />
+    <Compile Include="Areas\LeaveFunctions\LeaveFunctionsAreaRegistration.cs" />
+    <Compile Include="Areas\ProfileFunctions\Controllers\ProfileController.cs" />
+    <Compile Include="Areas\ProfileFunctions\ProfileFunctionsAreaRegistration.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Filter\CustomAuthorization.cs" />
+    <Compile Include="Filter\MyAuthenticationFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -144,12 +228,25 @@
     <Compile Include="Migrations\202010231210558_VarCharMax.designer.cs">
       <DependentUpon>202010231210558_VarCharMax.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010251113132_Login.cs" />
+    <Compile Include="Migrations\202010251113132_Login.designer.cs">
+      <DependentUpon>202010251113132_Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010251512373_EmpRole.cs" />
+    <Compile Include="Migrations\202010251512373_EmpRole.designer.cs">
+      <DependentUpon>202010251512373_EmpRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010271059011_Identity.cs" />
+    <Compile Include="Migrations\202010271059011_Identity.designer.cs">
+      <DependentUpon>202010271059011_Identity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010281209595_LeaveTable.cs" />
+    <Compile Include="Migrations\202010281209595_LeaveTable.designer.cs">
+      <DependentUpon>202010281209595_LeaveTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\CompanyDbContext.cs" />
-    <Compile Include="Models\Department.cs" />
-    <Compile Include="Models\Education.cs" />
-    <Compile Include="Models\Employees.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Startup1.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -168,6 +265,7 @@
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
     <Content Include="Views\Shared\Image.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -177,6 +275,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\EmployeeFunctions\Data\" />
+    <Folder Include="Areas\LeaveFunctions\Data\" />
+    <Folder Include="Areas\ProfileFunctions\Data\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202010201105114_Initial.resx">
@@ -197,6 +298,44 @@
     <EmbeddedResource Include="Migrations\202010231210558_VarCharMax.resx">
       <DependentUpon>202010231210558_VarCharMax.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010251113132_Login.resx">
+      <DependentUpon>202010251113132_Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010251512373_EmpRole.resx">
+      <DependentUpon>202010251512373_EmpRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010271059011_Identity.resx">
+      <DependentUpon>202010271059011_Identity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010281209595_LeaveTable.resx">
+      <DependentUpon>202010281209595_LeaveTable.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Company.DomainModels\Company.DomainModels.csproj">
+      <Project>{da6e540f-0b31-4c06-9e63-c56cbbb5b60d}</Project>
+      <Name>Company.DomainModels</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Company.RepositoryContracts\Company.RepositoryContracts.csproj">
+      <Project>{f1c1150d-3a7b-4ee4-873c-e905e9556128}</Project>
+      <Name>Company.RepositoryContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Company.RepositoryLayer\Company.RepositoryLayer.csproj">
+      <Project>{d585c887-8136-48b0-a7fb-be114c8b8c3e}</Project>
+      <Name>Company.RepositoryLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Company.ServiceContracts\Company.ServiceContracts.csproj">
+      <Project>{4bb31896-3e0d-49a9-949a-c1555b5000d8}</Project>
+      <Name>Company.ServiceContracts</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Company.ServiceLayer\Company.ServiceLayer.csproj">
+      <Project>{8e52f8d3-fce5-4091-a966-acb2aaf76404}</Project>
+      <Name>Company.ServiceLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Company.ViewModels\Company.ViewModels.csproj">
+      <Project>{c4153b46-34cd-4c64-b933-7becba0fa325}</Project>
+      <Name>Company.ViewModels</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

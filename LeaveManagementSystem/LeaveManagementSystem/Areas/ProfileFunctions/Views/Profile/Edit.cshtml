@@ -1,0 +1,72 @@
+﻿@model Company.DomainModels.Employees
+
+@{
+    ViewBag.Title = "Edit";
+
+}
+
+<h2>Edit</h2>
+
+<form method="post" action="/ProfileFunctions/Profile/edit" enctype="multipart/form-data" id="form">
+
+    @Html.HiddenFor(m => m.Id)
+
+    @Html.LabelFor(m => m.EmpName)
+    <br />
+    @Html.TextBoxFor(m => m.EmpName)
+    @Html.ValidationMessageFor(m => m.EmpName)
+
+    <br /><br />
+
+    @Html.LabelFor(m => m.EmpPosition)
+    <br />
+    @Html.TextBoxFor(m => m.EmpPosition)
+    @Html.ValidationMessageFor(m => m.EmpPosition)
+
+    <br /><br />
+
+    <h3>Educational Qualifications</h3>
+
+    <input type="hidden" id="EmpEdu_index" name="EmpEduIndex" value="-1" />
+
+    <div class="edu">
+        @for (int i = 0; i < Model.EmpEdu.Count(); i++)
+        {
+            <input type="hidden" id="EmpEdu_index" name="EmpEduIndex" value=@i />
+            <br />
+            @Html.LabelFor(m => m.EmpEdu[i].EduLevel)
+
+            @Html.TextBoxFor(m => m.EmpEdu[i].EduLevel)
+            @Html.ValidationMessageFor(m => m.EmpEdu[i].EduLevel)
+
+            @Html.LabelFor(m => m.EmpEdu[i].EduYOP)
+
+            @Html.TextBoxFor(m => m.EmpEdu[i].EduYOP)
+            @Html.ValidationMessageFor(m => m.EmpEdu[i].EduYOP)
+
+        }
+        <div id="added-edu"> </div>
+    </div>
+
+
+    <button id="add-btn">Add Education</button>
+
+    <input type="submit" value="Submit" />
+
+</form>
+
+<script>
+    $('#add-btn').click(function () {
+        event.preventDefault();
+        var oldindex = $('input[name=EmpEduIndex]').last().attr('value');
+        var index = parseInt(oldindex) + 1;
+        var text1 = '<input type="hidden" id="EmpEdu_index" name="EmpEduIndex" value=' + index + ' />';
+        var text2 = '<label for="EmpEdu_' + index + '__EduLevel">Level of Education</label>';
+        var text3 = '<input id="EmpEdu_' + index + '__EduLevel" name="EmpEdu[' + index + '].EduLevel" type="text" value="" />';
+        var text4 = '<label for="EmpEdu_' + index + '__EduYOP">Year Of Passing</label>';
+        var text5 = '<input id="EmpEdu_' + index + '__EduYOP" name="EmpEdu[' + index + '].EduYOP" type="text" value="" /><br />';
+
+        $('#added-edu').append(text1, text2, text3, text4, text5);
+
+});
+</script>

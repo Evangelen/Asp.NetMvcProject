@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://www.amcharts.com/lib/3/amcharts.js"></script>
+    <script src="https://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link href="~/Content/Styles.css" rel="stylesheet" type="text/css" />
+    <script src="~/Content/Java.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</head>
+
+<body>
+    <div class="grid">
+        <header class="header">
+            <i class="fas fa-bars header__menu"></i>
+
+            @if (User.Identity.IsAuthenticated == true)
+            {
+                <div class="header__avatar">
+                    <div class="dropdown">
+                        <ul class="dropdown__list">
+                            <li class="dropdown__list-item">
+                                <span class="dropdown__icon"><i class="fas fa-sign-out-alt"></i></span>
+                                <span class="dropdown__title">@Html.ActionLink("Logout", "Logout", new { Controller = "Account", area = "" })</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            }
+            
+        </header>
+
+        <aside class="sidenav">
+            <div class="sidenav__brand">
+                <i class="fas fa-feather-alt sidenav__brand-icon"></i>
+                <a class="sidenav__brand-link" href="/Home/Index"><span class="text-light">Leave System</span></a>
+                <i class="fas fa-times sidenav__brand-close"></i>
+            </div>
+
+            <div class="row row--align-v-center row--align-h-center">
+                <ul class="navList">
+                    @if (User.Identity.IsAuthenticated == false)
+                    {
+                        <li>
+                            <div class="navList__subheading row row--align-v-center">
+                                <span class="navList__subheading-icon"><i class="fas fa-briefcase-medical"></i></span>
+                                <span class="navList__subheading-title">@Html.ActionLink("Login", "Login", new { Controller = "Account", area = "" })</span>
+                            </div>
+                        </li>
+                    }
+
+                    @if (User.Identity.IsAuthenticated == true)
+                    {
+                        <li>
+                            <div class="navList__subheading row row--align-v-center">
+                                <span class="navList__subheading-icon"><i class="fas fa-briefcase-medical"></i></span>
+                                <span class="navList__subheading-title">Profile</span>
+                            </div>
+                            <ul class="subList subList--hidden">
+                                <li class="subList__item">@Html.ActionLink("Change Password", "ChangePassword", new { Controller = "Profile", area = "ProfileFunctions" })</li>
+                                <li class="subList__item">@Html.ActionLink("My Profile", "MyProfile", new { Controller = "Profile", area = "ProfileFunctions" })</li>
+                            </ul>
+                        </li>
+
+                        if (User.IsInRole("GeneralEmployee"))
+                        {
+                            <li>
+                                <div class="navList__subheading row row--align-v-center">
+                                    <span class="navList__subheading-icon"><i class="fas fa-briefcase-medical"></i></span>
+                                    <span class="navList__subheading-title">Leave Application</span>
+                                </div>
+                                <ul class="subList subList--hidden">
+                                    <li class="subList__item">@Html.ActionLink("My Leave Applications", "Index", new { Controller = "LeaveApplication", area = "LeaveFunctions" })</li>
+                                </ul>
+                            </li>
+                        }
+
+                        if (User.IsInRole("ProjectManager"))
+                        {
+                            <li>
+                                <div class="navList__subheading row row--align-v-center">
+                                    <span class="navList__subheading-icon"><i class="fas fa-briefcase-medical"></i></span>
+                                    <span class="navList__subheading-title">Employee Leave</span>
+                                </div>
+                                <ul class="subList subList--hidden">
+                                    <li class="subList__item">@Html.ActionLink("Leave Applications", "ViewAll", new { Controller = "LeaveRequest", area = "LeaveFunctions" })</li>
+                                </ul>
+                            </li>
+                        }
+
+                        if (User.IsInRole("HRDept") || User.IsInRole("HRWithSpecialPermission"))
+                        {
+                            <li>
+                                <div class="navList__subheading row row--align-v-center">
+                                    <span class="navList__subheading-icon"><i class="fas fa-briefcase-medical"></i></span>
+                                    <span class="navList__subheading-title">Employees</span>
+                                </div>
+                                <ul class="subList subList--hidden">
+                                    <li class="subList__item">@Html.ActionLink("List of Employees", "EmployeeIndex", new { Controller = "Employee", area = "EmployeeFunctions" })</li>
+                                    <li class="subList__item">@Html.ActionLink("Register", "Register", new { Controller = "Employee", area = "EmployeeFunctions" })</li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <div class="navList__subheading row row--align-v-center">
+                                    <span class="navList__subheading-icon"><i class="fas fa-briefcase-medical"></i></span>
+                                    <span class="navList__subheading-title">Employee Leave</span>
+                                </div>
+                                <ul class="subList subList--hidden">
+                                    <li class="subList__item">@Html.ActionLink("Leave Applications", "ViewAll", new { Controller = "LeaveRequest", area = "LeaveFunctions" })</li>
+                                </ul>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+        </aside>
+
+        <main class="main">
+
+            @RenderBody()
+
+        </main>
+
+        <footer class="footer">
+            <p><span class="footer__copyright">&copy;</span>2020</p>
+            <p>Crafted by Evangelen Paul</p>
+        </footer>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+﻿@model Company.DomainModels.Leave
+@{
+    ViewBag.Title = "ViewDetails";
+
+}
+
+<h2>View Details</h2>
+
+<table class="table">
+    <tr>
+        <th>Employee Name</th>
+        <th>Cause</th>
+        <th>Start Date</th>
+        <th>No. of days</th>
+        <th>Type of Leave</th>
+        <th>Status</th>
+    </tr>
+    <tr>
+        <td>@Model.Employees.EmpName</td>
+        <td>@Model.Cause</td>
+        <td>@Model.StartDate.ToShortDateString()</td>
+        <td>@Model.NoOfDays</td>
+        <td>@Model.TypeOfLeave.LeaveTypeName</td>
+        <td>@Model.LeaveStatus.StatusName</td>
+    </tr>
+</table>
+
+@if (Model.LeaveStatus.StatusName == "Pending")
+{
+    <form method="post" action="/LeaveFunctions/LeaveRequest/UpdateLeaveStatus?id=@Model.LeaveId">
+        <h3>Do you wish to approve the leave application?</h3>
+
+        @Html.DropDownListFor(m => m.StatusId, new SelectList(ViewBag.Status, "StatusId", "StatusName"), "Please select")
+
+        <input type="submit" value="Submit" />
+    </form>
+    <form action="mailto:@Model.Employees.EmpEmailId" method="post" enctype="text/plain">
+        <h3>Send an email to the employee</h3>
+        <input type="text" name="mail" />
+        <input type="submit" value="Send">
+        <input type="reset" value="Reset">
+    </form>
+}

@@ -1,0 +1,46 @@
+﻿@model Company.DomainModels.Leave
+
+@{
+    ViewBag.Title = "Create";
+
+}
+
+<h2>Create</h2>
+
+<form method="post" action="/LeaveFunctions/LeaveApplication/Create">
+
+    @Html.LabelFor(m => m.Cause)
+    <br />
+    @Html.TextBoxFor(m => m.Cause)
+    @Html.ValidationMessageFor(m => m.Cause)
+
+    <br /><br />
+
+    @Html.LabelFor(m => m.StartDate)
+    <br />
+    <input class="text-box single-line" id="StartDate" name="StartDate" type="date" value="">
+    @Html.ValidationMessageFor(m => m.StartDate)
+
+    <br /><br />
+
+    @Html.LabelFor(m => m.NoOfDays)
+    <br />
+    @Html.TextBoxFor(m => m.NoOfDays)
+    @Html.ValidationMessageFor(m => m.NoOfDays)
+
+    <br /><br />
+
+    @Html.LabelFor(m => m.TypeOfLeave.LeaveTypeName)
+    <br />
+    @Html.DropDownListFor(m => m.LeaveTypeId, new SelectList(ViewBag.Types, "LeaveTypeId", "LeaveTypeName"), "Please Select")
+
+    @Html.ValidationMessageFor(m => m.LeaveTypeId)
+
+    @Html.ValidationSummary()
+
+    <br /><br />
+
+    <input type="submit" value="Submit" />
+
+
+</form>

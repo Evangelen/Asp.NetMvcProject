@@ -1,0 +1,33 @@
+﻿@model List<Company.DomainModels.Leave>
+@{
+    ViewBag.Title = "Index";
+
+}
+
+<h2>Index</h2>
+
+<a href="/LeaveFunctions/LeaveApplication/Create">Create new leave application</a><br />
+<br />
+<table class="table">
+    <tr>
+        <th>Leave Cause</th>
+        <th>Start Date</th>
+        <th>Status</th>
+        <th>No. of days</th>
+        <th>Leave Type</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Cause</td>
+            <td>@item.StartDate.ToShortDateString()</td>
+            <td>@item.LeaveStatus.StatusName</td>
+            <td>@item.NoOfDays</td>
+            <td>@item.TypeOfLeave.LeaveTypeName</td>
+            <td><a href="/LeaveFunctions/LeaveApplication/Edit?id=@item.LeaveId">Edit</a></td>
+            <td><a href="/LeaveFunctions/LeaveApplication/Delete?id=@item.LeaveId">Delete</a></td>
+        </tr>
+    }
+
+</table>

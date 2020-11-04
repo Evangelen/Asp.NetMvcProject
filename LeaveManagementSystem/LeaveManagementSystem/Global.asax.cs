@@ -14,5 +14,11 @@ namespace LeaveManagementSystem
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
+
+        protected void Application_Error()
+        {
+            Exception exc = Server.GetLastError();
+            Response.Redirect("https://localhost:44388/Error.html");
+        }
     }
 }

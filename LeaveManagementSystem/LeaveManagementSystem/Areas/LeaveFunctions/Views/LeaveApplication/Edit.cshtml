@@ -1,0 +1,48 @@
+﻿@model Company.DomainModels.Leave
+
+@{
+    ViewBag.Title = "Edit";
+
+}
+
+<h2>Edit</h2>
+
+<form method="post" action="/LeaveFunctions/LeaveApplication/Edit?id=@Model.LeaveId">
+
+    @Html.LabelFor(m => m.Cause)
+    <br />
+    @Html.TextBoxFor(m => m.Cause)
+    @Html.ValidationMessageFor(m => m.Cause)
+
+    <br /><br />
+
+    @Html.LabelFor(m => m.StartDate)
+    <br />
+    @Html.TextBoxFor(m=>m.StartDate, "{0:yyyy-MM-dd}", new { type = "date" })
+    @Html.ValidationMessageFor(m => m.StartDate)
+
+    <br /><br />
+
+    @Html.LabelFor(m => m.NoOfDays)
+    <br />
+    @Html.TextBoxFor(m => m.NoOfDays)
+    @Html.ValidationMessageFor(m => m.NoOfDays)
+
+    <br /><br />
+
+    @Html.LabelFor(m => m.TypeOfLeave.LeaveTypeName)
+    <br />
+    @Html.DropDownListFor(m => m.LeaveTypeId, new SelectList(ViewBag.Types, "LeaveTypeId", "LeaveTypeName"))
+
+    @Html.ValidationMessageFor(m => m.LeaveTypeId)
+
+    @Html.ValidationSummary()
+
+    <br /><br />
+
+    <input type="submit" value="Submit" />
+
+
+</form>
+
+

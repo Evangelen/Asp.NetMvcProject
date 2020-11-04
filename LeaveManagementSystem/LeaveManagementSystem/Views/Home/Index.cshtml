@@ -1,33 +1,16 @@
-﻿@model List<LeaveManagementSystem.Models.Employees>
+﻿@model List<Company.DomainModels.Employees>
 @{
     ViewBag.Title = "Index";
 }
 
 <h2>Index</h2>
 
-<a href="~/home/create">Create</a>
+Employee Home
 
-<br /><br />
-
-<table class="table">
-    <tr>
-        <th>Photo</th>
-        <th>Employee Name</th>
-        <th>Employee Role</th>
-    </tr>
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td><img src="data:image/jpg;base64, @item.ImageUrl" width="100"/></td>
-            <td>@item.EmpName</td>
-            <td>@item.EmpRole</td>
-            <td><a href="~/home/edit?id=@item.EmpId">Edit</a></td>
-        </tr>
-    }
-</table>
 
 
 @{ var message = TempData["success"];}
+@{ var Failure = TempData["failure"];}
 
 
 <script>
@@ -36,7 +19,20 @@
         Swal.fire({
             position: 'top-end',
             icon: 'success',
-            title: 'Your work has been saved',
+            title: message,
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }
+</script>
+
+<script>
+    var failure = '@Failure';
+    if (failure) {
+        Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: failure,
             showConfirmButton: false,
             timer: 1500
         })

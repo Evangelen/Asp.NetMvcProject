@@ -1,0 +1,28 @@
+﻿@model List<Company.DomainModels.Leave>
+
+@{
+    ViewBag.Title = "ViewAllLeaves";
+
+}
+
+<h2>View All</h2>
+
+<table class="table">
+    <tr>
+        <th>Employee Name</th>
+        <th>Cause</th>
+        <th>Status</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Employees.EmpName</td>
+            <td>@item.Cause</td>
+            <td>@item.LeaveStatus.StatusName</td>           
+            @if (User.IsInRole("ProjectManager")|| User.IsInRole("HRWithSpecialPermission"))
+            {
+                <td><a href="/LeaveFunctions/LeaveRequest/ViewDetails?id=@item.LeaveId">View Details</a></td>
+            }
+        </tr>
+    }
+</table>

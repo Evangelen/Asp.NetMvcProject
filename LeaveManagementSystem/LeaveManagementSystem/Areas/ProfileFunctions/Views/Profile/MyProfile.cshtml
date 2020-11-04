@@ -1,0 +1,103 @@
+﻿@model Company.DomainModels.Employees
+
+@{
+    ViewBag.Title = "MyProfile";
+
+}
+
+<h2>MyProfile</h2>
+
+<a href="/ProfileFunctions/Profile/edit">Edit</a>
+<br />
+<br />
+
+
+@Html.HiddenFor(m => m.Id)
+
+@Html.LabelFor(m => m.EmpName)
+<br />
+@Html.DisplayFor(m => m.EmpName)
+
+<br />
+<br />
+
+@Html.LabelFor(m => m.EmpEmailId)
+<br />
+@Html.DisplayFor(m => m.EmpEmailId)
+
+<br />
+<br />
+
+@Html.LabelFor(m => m.Department.DeptName)
+<br />
+@Html.DisplayFor(m => m.Department.DeptName)
+
+<br />
+<br />
+
+
+@Html.LabelFor(m => m.EmpPosition)
+<br />
+@Html.DisplayFor(m => m.EmpPosition)
+
+<br />
+<br />
+
+@Html.LabelFor(m => m.EmpRole)
+<br />
+@Html.DisplayFor(m => m.EmpRole)
+
+<br />
+<br />
+
+
+
+<h3>Educational Qualifications</h3>
+
+
+<div class="edu">
+    @for (int i = 0; i < Model.EmpEdu.Count(); i++)
+    {
+        <br />
+        @Html.LabelFor(m => m.EmpEdu[i].EduLevel)<br />
+
+        @Html.DisplayFor(m => m.EmpEdu[i].EduLevel)<br />
+
+
+        @Html.LabelFor(m => m.EmpEdu[i].EduYOP)<br />
+
+        @Html.DisplayFor(m => m.EmpEdu[i].EduYOP)<br />
+
+
+    }
+    <div id="added-edu"> </div>
+</div>
+
+@{ var message = TempData["success"];}
+@{ var Failure = TempData["failure"];}
+
+<script>
+    var message = '@message';
+    if (message) {
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: message,
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }
+</script>
+
+<script>
+    var failure = '@Failure';
+    if (failure) {
+        Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: failure,
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }
+</script>

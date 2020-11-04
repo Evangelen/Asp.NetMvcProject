@@ -1,0 +1,84 @@
+﻿@model List<Company.DomainModels.Employees>
+@{
+    ViewBag.Title = "EmployeeIndex";
+
+}
+
+<h2>Employee Index</h2>
+
+<a href="/EmployeeFunctions/Employee/Register">Create new Employee</a>
+<br />
+<br />
+
+<form class="form-inline" action="/EmployeeFunctions/Employee/EmployeeIndex" style="display:inline-block">
+    <label for="Search">Search By Roles</label>
+    <select class="form-control" name="SearchByRole">
+        <option value="">Select Role</option>
+        <option value="GeneralEmployee">General Employee</option>
+        <option value="HRDept">HR Department</option>
+        <option value="ProjectManager">Project Manager</option>
+    </select>
+    <button type="submit" class="btn btn-primary">GO</button>
+</form>
+<form class="form-inline" action="/EmployeeFunctions/Employee/EmployeeIndex" style="display:inline-block;float:right">
+    <label for="Search">Search By Name</label>
+    <select class="form-control" name="SearchByName">
+        <option value="">Select Name</option>
+        @foreach (var item in Model)
+        {
+            <option value=@item.EmpName>@item.EmpName</option>
+        }
+    </select>
+
+    <button type="submit" class="btn btn-primary">GO</button>
+</form>
+
+<br />
+<br />
+
+<table class="table">
+    <tr>
+        <th>Employee Name</th>
+        <th>Department</th>
+        <th>Designation</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.EmpName</td>
+            <td>@item.Department.DeptName</td>
+            <td>@item.EmpPosition</td>
+            <td><a href="/EmployeeFunctions/Employee/EditEmployee?id=@item.Id">Edit</a></td>
+            <td><a href="/EmployeeFunctions/Employee/DeleteEmployee?id=@item.Id">Delete</a></td>
+        </tr>
+    }
+</table>
+
+@{ var message = TempData["success"];}
+@{ var Failure = TempData["failure"];}
+
+<script>
+    var message = '@message';
+    if (message) {
+        Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: message,
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }
+</script>
+
+<script>
+    var failure = '@Failure';
+    if (failure) {
+        Swal.fire({
+            position: 'top-end',
+            icon: 'error',
+            title: failure,
+            showConfirmButton: false,
+            timer: 1500
+        })
+    }
+</script>
