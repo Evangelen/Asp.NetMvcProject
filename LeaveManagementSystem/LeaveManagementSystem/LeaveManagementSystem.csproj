@@ -136,6 +136,14 @@
     <Compile Include="Migrations\202010220752446_DisplayNames.designer.cs">
       <DependentUpon>202010220752446_DisplayNames.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010230753522_ImageAdded.cs" />
+    <Compile Include="Migrations\202010230753522_ImageAdded.designer.cs">
+      <DependentUpon>202010230753522_ImageAdded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010231210558_VarCharMax.cs" />
+    <Compile Include="Migrations\202010231210558_VarCharMax.designer.cs">
+      <DependentUpon>202010231210558_VarCharMax.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\CompanyDbContext.cs" />
     <Compile Include="Models\Department.cs" />
@@ -159,6 +167,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+    <Content Include="Views\Shared\Image.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -181,6 +190,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010220752446_DisplayNames.resx">
       <DependentUpon>202010220752446_DisplayNames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010230753522_ImageAdded.resx">
+      <DependentUpon>202010230753522_ImageAdded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010231210558_VarCharMax.resx">
+      <DependentUpon>202010231210558_VarCharMax.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

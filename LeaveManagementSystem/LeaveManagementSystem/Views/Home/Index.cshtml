@@ -11,12 +11,14 @@
 
 <table class="table">
     <tr>
+        <th>Photo</th>
         <th>Employee Name</th>
         <th>Employee Role</th>
     </tr>
     @foreach (var item in Model)
     {
         <tr>
+            <td><img src="data:image/jpg;base64, @item.ImageUrl" width="100"/></td>
             <td>@item.EmpName</td>
             <td>@item.EmpRole</td>
             <td><a href="~/home/edit?id=@item.EmpId">Edit</a></td>

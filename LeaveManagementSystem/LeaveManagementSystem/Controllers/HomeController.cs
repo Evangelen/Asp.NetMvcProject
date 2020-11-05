@@ -65,7 +65,15 @@ namespace LeaveManagementSystem.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (Request.Files.Count>=1)
+                {
+                    var file = Request.Files[0];
+                    var imgBytes = new Byte[file.ContentLength];
+                    file.InputStream.Read(imgBytes, 0, file.ContentLength);
+                    var base64String = Convert.ToBase64String(imgBytes, 0, imgBytes.Length);
+                    Emp.ImageUrl = base64String;
 
+                }
                 Db.Employees.Add(Emp);
                 Db.SaveChanges();
                 TempData["success"] = "The employee has been successfully added";
