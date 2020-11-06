@@ -13,6 +13,7 @@ using System.Web.Helpers;
 
 namespace LeaveManagementSystem.Areas.LeaveFunctions.Controllers
 {
+    
     public class LeaveRequestController : Controller
     {
         ILeaveRequestsServices RequestsServices;
@@ -40,6 +41,7 @@ namespace LeaveManagementSystem.Areas.LeaveFunctions.Controllers
             return View(leaveList);
         }
 
+        [CustomAuthorization]
         public ActionResult ViewDetails(long id)
         {
             ViewBag.Status = applicationServices.GetStatuses();
@@ -48,8 +50,8 @@ namespace LeaveManagementSystem.Areas.LeaveFunctions.Controllers
         }
 
 
-        [CustomAuthorization]
         [HttpPost]
+        [CustomAuthorization]
         public ActionResult UpdateLeaveStatus(long id, Leave leave)
         {
             RequestsServices.UpdateLeaveStatus(id, leave);

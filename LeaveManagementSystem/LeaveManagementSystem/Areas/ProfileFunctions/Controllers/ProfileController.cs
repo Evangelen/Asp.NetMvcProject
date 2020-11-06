@@ -43,7 +43,7 @@ namespace LeaveManagementSystem.Areas.ProfileFunctions.Controllers
             {
                 Employees currentUser = profileServices.GetEmployee();
                 profileServices.Edit(currentUser, newEmp);
-                TempData["success"] = "The employee has been successfully edited";
+                TempData["success"] = "The profile has been successfully edited";
                 return RedirectToAction("Index", "Home", new { area = "" });
             }
             else
@@ -76,13 +76,13 @@ namespace LeaveManagementSystem.Areas.ProfileFunctions.Controllers
                 else
                 {
                     TempData["failure"] = "The password is incorrect";
-                    return RedirectToAction("Index", "Home", new { area = "" });
+                    return View();
                 }
 
             }
             else
             {
-                ModelState.AddModelError("My Error", "Invalid Data");
+                ModelState.AddModelError("My Error", "");
                 return View();
             }
         }

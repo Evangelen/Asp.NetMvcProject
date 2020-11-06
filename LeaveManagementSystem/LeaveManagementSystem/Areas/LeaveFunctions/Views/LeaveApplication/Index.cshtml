@@ -19,15 +19,21 @@
 
     @foreach (var item in Model)
     {
-        <tr>
-            <td>@item.Cause</td>
-            <td>@item.StartDate.ToShortDateString()</td>
-            <td>@item.LeaveStatus.StatusName</td>
-            <td>@item.NoOfDays</td>
-            <td>@item.TypeOfLeave.LeaveTypeName</td>
-            <td><a href="/LeaveFunctions/LeaveApplication/Edit?id=@item.LeaveId">Edit</a></td>
-            <td><a href="/LeaveFunctions/LeaveApplication/Delete?id=@item.LeaveId">Delete</a></td>
-        </tr>
+<tr>
+    <td>@item.Cause</td>
+    <td>@item.StartDate.ToShortDateString()</td>
+    <td>@item.LeaveStatus.StatusName</td>
+    <td>@item.NoOfDays</td>
+    <td>@item.TypeOfLeave.LeaveTypeName</td>
+
+    @if (item.LeaveStatus.StatusName == "Pending")
+    {
+        <td><a href="/LeaveFunctions/LeaveApplication/Edit?id=@item.LeaveId">Edit</a></td>
+        <td><a href="/LeaveFunctions/LeaveApplication/Delete?id=@item.LeaveId">Delete</a></td>
+    }
+
+
+</tr>
     }
 
 </table>

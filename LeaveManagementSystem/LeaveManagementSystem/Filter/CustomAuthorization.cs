@@ -19,7 +19,7 @@ namespace LeaveManagementSystem.Filter
         {
             if ((filterContext.HttpContext.User.IsInRole("ProjectManager") || filterContext.HttpContext.User.IsInRole("HRWithSpecialPermission"))==false)
             {
-                filterContext.Result = new HttpUnauthorizedResult(); 
+                filterContext.Result = new RedirectResult("https://localhost:44388/AuthorizationError.html");
             }
         }
     }

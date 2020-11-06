@@ -26,10 +26,23 @@
 
     @Html.LabelFor(m => m.Department)
     <br />
-    @Html.DropDownListFor(m => m.DeptId, new SelectList(ViewBag.Departments, "DeptId", "DeptName"), "Please Select")
+    @Html.DropDownListFor(m => m.DeptId, new SelectList(ViewBag.Departments, "DeptId", "DeptName"), "Please Select", new { @id = "role" })
     @Html.ValidationMessageFor(m => m.DeptId)
 
     <br /><br />
+
+    @if (User.IsInRole("HRDept") || User.IsInRole("HRWithSpecialPermission"))
+    {
+        <div id="roleBased">
+
+        @Html.LabelFor(m => m.IsSpecialPermission)
+        <br />
+        @Html.RadioButtonFor(m => m.IsSpecialPermission, "true")
+        @Html.ValidationMessageFor(m => m.IsSpecialPermission)
+
+        <br /><br />
+        </div>
+    }
 
     <h3>Educational Qualifications</h3>
 
@@ -80,3 +93,15 @@
 });
 </script>
 
+<script>
+    $(document).ready(function () {
+        $('#role').on('change', function () {
+            if ($(this).val() == "37") {
+                $('#roleBased').show();
+            }
+            else {
+                $('#roleBased').hide();
+            }
+        });
+    })
+</script>

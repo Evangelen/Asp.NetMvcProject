@@ -81,6 +81,7 @@ namespace LeaveManagementSystem.Areas.EmployeeFunctions.Controllers
             {
                 ViewBag.Departments = accountServices.GetDepartments();
                 var user = accountServices.Register(rvm);
+
                 if (Request.Files.Count >= 1)
                 {
                     var file = Request.Files[0];
@@ -88,8 +89,9 @@ namespace LeaveManagementSystem.Areas.EmployeeFunctions.Controllers
                     file.InputStream.Read(imgBytes, 0, file.ContentLength);
                     var base64String = Convert.ToBase64String(imgBytes, 0, imgBytes.Length);
                     user.ImageUrl = base64String;
+                    accountServices.UpdateUser(user);
                 }
-                accountServices.UpdateUser(user);
+
                 if (user != null)
                 {
                     TempData["success"] = "The employee has been successfully added";
